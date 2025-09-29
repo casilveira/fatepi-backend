@@ -1,0 +1,22 @@
+<?php
+class Produto {
+    private $preco;
+
+    public function getPreco() {
+        return $this->preco;
+    }
+
+    public function setPreco($valor) {
+        if ($valor < 0) {
+            $this->preco = 0;
+        } else {
+            $this->preco = $valor;
+        }
+    }
+}
+
+$p1 = new Produto();
+$p1->setPreco(-50);
+echo "Preço do produto: R$ " . $p1->getPreco(); // Saída: 0
+
+?>
