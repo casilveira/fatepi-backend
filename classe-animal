@@ -1,0 +1,25 @@
+<?php
+class Animal {
+    public function falar() {
+        return "O animal emite um som.";
+    }
+}
+
+class Cachorro extends Animal {
+    public function falar() {
+        return "Au Au!";
+    }
+}
+
+class Gato extends Animal {
+    public function falar() {
+        return "Miau!";
+    }
+}
+
+$animais = [new Cachorro(), new Gato()];
+
+foreach ($animais as $animal) {
+    echo $animal->falar() . "\n";
+}
+?>
