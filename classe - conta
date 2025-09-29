@@ -1,0 +1,28 @@
+<?php
+class Conta {
+    private $tipo;
+    private $saldo;
+
+    public function __construct($tipo) {
+        $this->tipo = $tipo;
+        if ($tipo === "corrente") {
+            $this->saldo = 100;
+        } elseif ($tipo === "poupanca") {
+            $this->saldo = 500;
+        } else {
+            $this->saldo = 0;
+        }
+    }
+
+    public function getSaldo() {
+        return "Conta {$this->tipo} - Saldo: R$ " . $this->saldo;
+    }
+}
+
+// Testando
+$c1 = new Conta("corrente");
+$c2 = new Conta("poupanca");
+
+echo $c1->getSaldo() . "\n"; // Conta corrente - Saldo: R$ 100
+echo $c2->getSaldo() . "\n"; // Conta poupanca - Saldo: R$ 500
+?>
