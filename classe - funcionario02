@@ -1,0 +1,32 @@
+<?php
+class Funcionario {
+    private $nome;
+    private $salario;
+
+    public function setNome($nome) {
+        $this->nome = $nome;
+    }
+
+    public function getNome() {
+        return $this->nome;
+    }
+
+    public function setSalario($valor) {
+        if ($valor >= 1000) {
+            $this->salario = $valor;
+        } else {
+            $this->salario = 1000; // valor mínimo
+        }
+    }
+
+    public function getSalario() {
+        return $this->salario * 1.10; // aplica bônus de 10%
+    }
+}
+
+$f1 = new Funcionario();
+$f1->setNome("Maria");
+$f1->setSalario(900); 
+echo $f1->getNome() . " - Salário final: R$ " . $f1->getSalario(); // Saída: R$ 1100
+
+?>
