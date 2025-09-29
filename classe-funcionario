@@ -1,0 +1,22 @@
+<?php
+class Funcionario {
+    protected $salarioBase = 2000;
+
+    public function salario() {
+        return $this->salarioBase;
+    }
+}
+
+class Gerente extends Funcionario {
+    public function salario() {
+        // Sobrescreve, mas aproveita o cálculo do pai
+        return parent::salario() + 1500;
+    }
+}
+
+$f1 = new Funcionario();
+$g1 = new Gerente();
+
+echo "Salário Funcionário: R$ " . $f1->salario() . "\n"; // 2000
+echo "Salário Gerente: R$ " . $g1->salario() . "\n";     // 3500
+?>
