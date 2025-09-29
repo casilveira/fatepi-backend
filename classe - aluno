@@ -1,0 +1,21 @@
+<?php
+class Aluno {
+    private $nota;
+
+    public function setNota($nota) {
+        if ($nota >= 0 && $nota <= 10) {
+            $this->nota = $nota;
+        } else {
+            $this->nota = 0; // valor inválido
+        }
+    }
+
+    public function getNota() {
+        return ($this->nota >= 7) ? "Aprovado" : "Reprovado";
+    }
+}
+
+$a1 = new Aluno();
+$a1->setNota(8);
+echo $a1->getNota(); // Saída: Aprovado
+?>
