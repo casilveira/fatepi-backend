@@ -1,0 +1,31 @@
+<?php
+class ContaBancaria {
+    private $saldo = 0;
+    private $titular;
+
+    public function setTitular($nome) {
+        $this->titular = $nome;
+    }
+
+    public function getTitular() {
+        return $this->titular;
+    }
+
+    public function setSaldo($valor) {
+        if ($valor > 0) {
+            $this->saldo += $valor; // depósito
+        }
+    }
+
+    public function getSaldo() {
+        return "R$ " . number_format($this->saldo, 2, ',', '.');
+    }
+}
+
+$c1 = new ContaBancaria();
+$c1->setTitular("Carlos");
+$c1->setSaldo(1000);
+$c1->setSaldo(-500); // não altera
+echo $c1->getTitular() . " - Saldo: " . $c1->getSaldo();
+
+?>
