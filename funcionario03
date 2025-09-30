@@ -1,0 +1,39 @@
+<?php 
+class Funcionario { 
+	
+	public $totalFaltas = 5;
+	protected $salarioBase = 2000; 
+	
+	public function salario() { 
+		
+		return $this->salarioBase - $this->totalFaltas * 10;
+		} 
+		
+	} 
+	
+	
+class Gerente extends Funcionario { 
+	
+	public function salario() { 
+// Sobrescreve, mas aproveita o cálculo do pai 
+	return parent::salario() + 1500; 
+		} 
+	} 
+	
+class Coordenador extends Gerente { 
+	
+	public function salario() { 
+// Sobrescreve, mas aproveita o cálculo do pai 
+	return parent::salario() * 0.75; 
+		} 
+	} 
+	
+$f1 = new Funcionario(); 
+$g1 = new Gerente(); 
+$c1 = new Coordenador(); 
+
+echo "Salário Funcionário: R$ " . $f1->salario() . "\n"; // 2000 
+echo "Salário Gerente: R$ " . $g1->salario() . "\n";     // 3500 
+echo "Salário Coordenador: R$ " . $c1->salario() . "\n";     // 3500 
+
+?> 
