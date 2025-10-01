@@ -1,0 +1,49 @@
+
+
+<?php 
+class Aluno { 
+    private $media; 
+    private $status;
+ 
+    public function __construct($media) { 
+        $this->media = $media; 
+        switch ($media) { 
+            case ($media >= 7) :
+            	$this-> status = "Aprovado" ;
+                break; 
+            case ($media>= 4 && $media < 7): 
+                $this->status = "Prova Final"; 
+                break; 
+            case ($media < 4): 
+                $this->status = "Reprovado"; 
+                break; 
+            default: 
+                $this->status = "Erro"; 
+        } 
+    } 
+ 
+    public function descricao() { 
+        return "O aluno com {$this->media} está {$this->status}!"; 
+    } 
+} 
+ 
+// Testando 
+$aluno1 = new aluno(7); 
+$aluno2 = new aluno(6); 
+$aluno3 = new aluno(3); 
+$aluno4 = new aluno(10); 
+$aluno5 = new aluno(4); 
+$aluno6 = new aluno(3.9); 
+
+
+ 
+echo $aluno1->descricao() . "\n"; 
+echo $aluno2->descricao() . "\n"; 
+echo $aluno3->descricao() . "\n"; 
+echo $aluno4->descricao() . "\n"; 
+echo $aluno5->descricao() . "\n"; 
+echo $aluno6->descricao() . "\n"; 
+
+//SWITCH-CASE não é a melhor opção para resolver esse tipo de problema, o ideal é usar IF-ELSE.
+ 
+?> 
